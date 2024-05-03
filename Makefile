@@ -32,6 +32,7 @@ help:
         "* other possible targets: make <press TAB twice> \n" \
 		"* install Vale and Vale rules: make vale-get \n" \
 		"* run Vale against a file: make vale-run FILE=example.md \n" \
+		"* clean Vale related files: make vale-clean \n" \
         "--------------------------------------------------------------- \n"
 
 full-help: $(VENVDIR)
