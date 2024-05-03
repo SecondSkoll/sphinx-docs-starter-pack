@@ -11,6 +11,7 @@ BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV          = $(VENVDIR)/bin/activate
+TARGET		  = index.rst
 
 .PHONY: help full-help woke-install pa11y-install install run html epub serve \
         clean clean-doc spelling linkcheck woke pa11y Makefile
@@ -29,6 +30,8 @@ help:
         "* check inclusive language: make woke \n" \
         "* check accessibility: make pa11y \n" \
         "* other possible targets: make <press TAB twice> \n" \
+		"* install Vale and Vale rules: make vale-get \n" \
+		"* run Vale against a file: make vale-run FILE=example.md \n" \
         "--------------------------------------------------------------- \n"
 
 full-help: $(VENVDIR)
@@ -102,6 +105,20 @@ woke: woke-install
 
 pa11y: pa11y-install html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
+
+vale-get: install
+	. $(VENV); python3 $(SPHINXDIR)/get_vale_conf.py
+	vale > /dev/null 
+
+vale-run: vale-get
+	@echo ""
+	@echo "Running Vale against $(TARGET). To change target set FILE= with make command"
+	@echo ""
+	. $(VENV); vale --config "$(SOURCEDIR)/vale.ini" $(TARGET)
+
+vale-clean:
+	rm -rf ./styles
+	rm -rf vale.ini
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
