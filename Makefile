@@ -109,18 +109,14 @@ woke: woke-install
 pa11y: pa11y-install html
 	find $(BUILDDIR) -name *.html -print0 | xargs -n 1 -0 $(PA11Y)
 
-vale-get: install
-	. $(VENV); pip install vale
-	. $(VENV); python3 $(SPHINXDIR)/get_vale_conf.py
-	@echo "Installing Vale"
-	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null
-	@echo "Vale installed"
-
-vale-run: vale-get
+vale: install
+	@. $(VENV); test -d $(SPHINXDIR)/venv/lib/python3.12/site-packages/vale || pip install vale
+	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
+	@. $(VENV); find $(SPHINXDIR)/venv/lib/python3.12/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
 	@echo ""
 	@echo "Running Vale against $(TARGET). To change target set FILE= with make command"
 	@echo ""
-	. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" $(TARGET)
+	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" $(TARGET)
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
