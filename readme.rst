@@ -454,6 +454,15 @@ Validate links within the documentation:
 
    make linkcheck
 
+Style guide linting
+^^^^^^^^^^^^^^^^^^^
+
+Check documentation against the `Vale documentation linter configured with the current style guide <https://github.com/canonical/praecepta>`_.
+
+.. code-block:: shell
+
+   make vale
+
 Configure the spelling check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
