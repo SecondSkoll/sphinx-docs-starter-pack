@@ -84,8 +84,7 @@ if __name__ == "__main__":
         "sphinx-design",
         "sphinxcontrib-jquery",
         "watchfiles",
-        "GitPython",
-        "vale"
+        "GitPython"
 
     ]
 

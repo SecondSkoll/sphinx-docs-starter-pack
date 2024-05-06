@@ -11,5 +11,5 @@ _build
 __pycache__
 .idea/
 .vscode/
-styles/
-vale.ini
+.sphinx/styles/*
+.sphinx/vale.ini
