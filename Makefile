@@ -11,10 +11,10 @@ BUILDDIR      = _build
 VENVDIR       = $(SPHINXDIR)/venv
 PA11Y         = $(SPHINXDIR)/node_modules/pa11y/bin/pa11y.js --config $(SPHINXDIR)/pa11y.json
 VENV          = $(VENVDIR)/bin/activate
-TARGET		  = index.rst
+TARGET        = index.rst
 
 .PHONY: help full-help woke-install pa11y-install install run html epub serve \
-        clean clean-doc spelling linkcheck woke pa11y Makefile
+        clean clean-doc spelling linkcheck woke pa11y Makefile vale-get vale-run
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -112,6 +112,8 @@ pa11y: pa11y-install html
 vale-get: install
 	. $(VENV); pip install vale
 	. $(VENV); python3 $(SPHINXDIR)/get_vale_conf.py
+	@echo "Installing Vale"
+	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null
 	@echo "Vale installed"
 
 vale-run: vale-get
