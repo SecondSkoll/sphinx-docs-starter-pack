@@ -14,7 +14,7 @@ VENV          = $(VENVDIR)/bin/activate
 TARGET        = index.rst
 
 .PHONY: help full-help woke-install pa11y-install install run html epub serve \
-        clean clean-doc spelling linkcheck woke pa11y Makefile vale-get vale-run
+        clean clean-doc spelling linkcheck woke pa11y Makefile vale
 
 # Put it first so that "make" without argument is like "make help".
 help:
