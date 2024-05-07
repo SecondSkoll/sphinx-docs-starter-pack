@@ -463,6 +463,24 @@ Check documentation against the `Vale documentation linter configured with the c
 
    make vale
 
+Vale can run against individual files, directories, or globs. To set a specific target:
+
+.. code-block:: shell
+
+    make vale TARGET=example.file
+    make vale TARGET=example-directory
+
+To run against all files with a specific extension within a folder:
+
+.. code-block:: shell
+
+    make vale TARGET=*.md
+
+.. note::
+    
+    Wildcards can be used to run against all files matching a string, or an extension. The example above will match against all :code:`.md`
+    files, and :code:`TARGET=doc*` will match both :code:`doc_1.md` and :code:`doc_2.md`.
+
 Configure the spelling check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
