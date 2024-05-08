@@ -30,7 +30,7 @@ help:
         "* check inclusive language: make woke \n" \
         "* check accessibility: make pa11y \n" \
         "* other possible targets: make <press TAB twice> \n" \
-        "* install and run Vale against a file: make vale FILE=example.md \n" \
+        "* install and run Vale against a file: make vale TARGET=example.md \n" \
         "--------------------------------------------------------------- \n"
 
 full-help: $(VENVDIR)
@@ -112,7 +112,7 @@ vale: install
 	@. $(VENV); test -f $(SPHINXDIR)/vale.ini || python3 $(SPHINXDIR)/get_vale_conf.py
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
 	@echo ""
-	@echo "Running Vale against $(TARGET). To change target set FILE= with make command"
+	@echo "Running Vale against $(TARGET). To change target set TARGET= with make command"
 	@echo ""
 	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" $(TARGET)
 
