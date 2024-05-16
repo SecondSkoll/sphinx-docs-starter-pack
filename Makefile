@@ -11,17 +11,11 @@
 help:
 	@echo "\n" \
         "------------------------------------------------------------- \n" \
-        "* watch, build and serve the documentation:  make run \n" \
-        "* only build:                                make html \n" \
-        "* only serve:                                make serve \n" \
-        "* clean built doc files:                     make clean-doc \n" \
-        "* clean full environment:                    make clean \n" \
-        "* check links:                               make linkcheck \n" \
-        "* check spelling:                            make spelling \n" \
-        "* check inclusive language:                  make woke \n" \
-        "* check accessibility:                       make pa11y \n" \
-        "* other possible targets:                    make <TAB twice> \n" \
+        "* See Starter Pack help:                         make sp-help \n" \
         "------------------------------------------------------------- \n"
+
+sp-update:
+    @wget -O Makefile https://raw.githubusercontent.com/canonical/sphinx-docs-starter-pack/main/Makefile
 
 %:
 	$(MAKE) -f Makefile.sp sp-$@

@@ -17,6 +17,22 @@ TARGET        = index.rst
         sp-epub sp-serve sp-clean sp-clean-doc sp-spelling sp-linkcheck sp-woke \
         sp-pa11y Makefile.sp sp-vale
 
+sp-help:
+	@echo "\n" \
+        "------------------------------------------------------------- \n" \
+        "* watch, build and serve the documentation:  make sp-run \n" \
+        "* only build:                                make sp-html \n" \
+        "* only serve:                                make sp-serve \n" \
+        "* clean built doc files:                     make sp-clean-doc \n" \
+        "* clean full environment:                    make sp-clean \n" \
+        "* check links:                               make sp-linkcheck \n" \
+        "* check spelling:                            make sp-spelling \n" \
+        "* check inclusive language:                  make sp-woke \n" \
+        "* check accessibility:                       make sp-pa11y \n" \
+        "* other possible targets:                    make <TAB twice> \n" \
+        "------------------------------------------------------------- \n"
+
+
 sp-full-help: $(VENVDIR)
 	@. $(VENV); $(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@echo "\n\033[1;31mNOTE: This help texts shows unsupported targets!\033[0m"
