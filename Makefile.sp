@@ -104,6 +104,15 @@ sp-vale: sp-install
 	@echo ""
 	@. $(VENV); vale --config "$(SPHINXDIR)/vale.ini" --glob='*.{md,txt,rst}' $(TARGET)
 
+sp-pdf-prep: sp-install
+	@. $(VENV); apt-get update
+	@. $(VENV); apt-get upgrade -y
+	@. $(VENV); apt-get install --no-install-recommends -y latexmk fonts-freefont-otf fonts-ibm-plex texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-lang-cjk texlive-xetex plantuml xindy tex-gyre dvipng \
+
+sp-pdf: sp-pdf-prep
+	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	@. $(VENV); find ./_build/latex -name "*.pdf" -exec mv -t ./ {} +
+	@. $(VENV); rm -r _build
 
 
 # Catch-all target: route all unknown targets to Sphinx using the new

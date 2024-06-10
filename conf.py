@@ -211,3 +211,275 @@ def get_contributors_for_file(github_url, github_folder, pagename, page_source_s
 
 html_context['get_contribs'] = get_contributors_for_file
 #############################################################
+### PDF configuration
+#############################################################
+
+latex_documents = [('index', f'PDF.tex', f'PDF', 'Canonical', 'manual')]
+
+latex_engine = 'xelatex'
+latex_elements = {
+    'fontpkg': r'''
+        \usepackage[sc]{mathpazo}
+        \usepackage{helvet}
+        \usepackage{courier}
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+        \usepackage{xcolor}
+        \usepackage{tgheros}
+        \usepackage{tgcursor}
+        \usepackage{tocloft}
+        \setmainfont{TeXGyreHeros}
+        \setsansfont{TeXGyreHeros}
+        \setmonofont{TeXGyreCursor}
+    ''',
+
+    'passoptionstopackages': r'''
+        \PassOptionsToPackage{svgnames}{xcolor}
+        \PassOptionsToPackage{table}{xcolor}
+        \PassOptionsToPackage{bookmarksdepth=2}{hyperref}% depth of pdf bookmarks
+        \PassOptionsToPackage{headsep=2mm,footskip=6mm}{geometry}
+    ''',
+
+    'preamble': r'''
+        \setcounter{secnumdepth}{0}
+        \setcounter{tocdepth}{2}
+        \pagestyle{plain}
+
+        \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hspace{30pt}}{0pt}{\Huge\bfseries\raggedright}
+        \titlespacing{\chapter}{0pt}{-26pt}{*1.5}
+
+        \addtolength{\cftsecindent}{1.5em}
+        \setlength{\cftsecnumwidth}{0em}
+        \addtolength{\cftsubsecindent}{1.5em}
+        \setlength{\cftsubsecnumwidth}{0em}
+
+        \usepackage{graphicx}
+        \usepackage{tcolorbox}
+        \usepackage{hyperref}
+        \usepackage{float}
+
+        \hypersetup{
+            colorlinks=true,
+            linktoc=page
+        }
+
+        \renewcommand{\baselinestretch}{1.1}
+
+        \definecolor{class-red}{RGB}{139,0,0}
+        \definecolor{code-io}{RGB}{238,238,238}
+        
+        \definecolor{red-io}{RGB}{192,0,0}
+        \definecolor{orange-io}{RGB}{196,89,17}
+        \definecolor{blue-io}{RGB}{47,84,150}
+
+        \renewenvironment{quote}
+          {\begin{tcolorbox}[colback=code-io,
+                            colframe=code-io,
+                            boxsep=1mm,
+                            left=1mm,
+                            right=1mm,
+                            sharp corners,
+                            parbox=false]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxnote}[1]
+          {\begin{tcolorbox}[colback=blue-io,
+                             colframe=blue-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxhint}[1]
+          {\begin{tcolorbox}[colback=blue-io,
+                             colframe=blue-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinximportant}[1]
+          {\begin{tcolorbox}[colback=blue-io,
+                             colframe=blue-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxtip}[1]
+          {\begin{tcolorbox}[colback=blue-io,
+                             colframe=blue-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxwarning}[1]
+          {\begin{tcolorbox}[colback=orange-io,
+                             colframe=orange-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxattention}[1]
+          {\begin{tcolorbox}[colback=orange-io,
+                             colframe=orange-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxcaution}[1]
+          {\begin{tcolorbox}[colback=orange-io,
+                             colframe=orange-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxerror}[1]
+          {\begin{tcolorbox}[colback=red-io,
+                             colframe=red-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \renewenvironment{sphinxdanger}[1]
+          {\begin{tcolorbox}[colback=red-io,
+                             colframe=red-io,
+                             coltext=black!0,
+                             boxsep=1mm,
+                             left=1mm,
+                             right=1mm,
+                             toptitle=1.5mm,
+                             sharp corners,
+                             parbox=false,
+                             title=\sphinxstrong{#1}]}
+          {\end{tcolorbox}}
+
+        \protected\def\sphinxstyletheadfamily{\cellcolor{code-io}\textbf}
+    ''',
+
+################################################################################
+#
+# Codeblock style
+#
+################################################################################
+
+    'fvset': '\\fvset{fontsize=auto, vspace=2mm, xleftmargin=1mm}',
+    # fix missing index entry due to RTD doing only once pdflatex after makeindex
+
+################################################################################
+#
+# Changes to Latex output for nice title page.
+#
+################################################################################
+
+    'maketitle': r'''
+        \begin{titlepage}
+
+            \begin{flushleft}
+
+            \vspace*{20mm}
+
+            \begin{tcolorbox}[invisible,width=40mm,height=40mm,halign=flush left,colback=white,colframe=white]
+            Logo
+            \end{tcolorbox}
+
+            \vspace*{5mm}
+
+            \par\noindent\rule{\textwidth}{1pt}
+
+            \vspace*{22mm}
+
+            \fontsize{48}{58}{\fontfamily{lmss}\selectfont
+            \uppercase{Test}
+            }
+
+            \vspace{12mm}
+            
+            \fontsize{30}{40}{\fontfamily{lmss}\selectfont
+            \uppercase{Test}
+            }
+
+            \vspace*{17mm}
+
+            \par\noindent\rule{\textwidth}{1pt}
+
+            \vspace*{10mm}
+            
+            \small \fontfamily{lmss}\textbf{Revision:} Test V, Test Y
+            
+            \small \fontfamily{lmss}\textbf{Classification: \color{class-red}{COMMERCIAL IN CONFIDENCE}}
+
+            \vfill
+
+            \end{flushleft}
+            
+        \end{titlepage}
+    ''',
+
+
+    'printindex': r'''
+        \IfFileExists{\jobname.ind}
+                     {\footnotesize\raggedright\printindex}
+                     {\begin{sphinxtheindex}\end{sphinxtheindex}}
+    ''',
+
+    'extraclassoptions': ',openany,oneside',
+    'babel': r'\usepackage[english]{babel}',
+    'papersize': 'a4paper',
+    'sphinxsetup': 'TitleColor={named}{Black}, hmargin={12mm,12mm}, vmargin={16mm,12mm}, TitleColor={rgb}{0.1,0.1,0.1}, InnerLinkColor={RGB}{70,126,226}, OuterLinkColor={RGB}{70,126,226}, VerbatimColor={RGB}{238,238,238}, verbatimwithframe=false, verbatimsep=0pt',
+    'inputenc': '',
+    'utf8extra': '',
+    'fncychap': '',
+    'figure_align': 'H',
+}
+
+latex_show_urls = 'footnote'
+latex_use_xindy = True
+latex_use_modindex = True
+latex_logo = ''
+latex_show_pagerefs = True
