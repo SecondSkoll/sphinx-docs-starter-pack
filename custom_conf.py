@@ -302,7 +302,7 @@ latex_elements = {
             {\raisebox{0pt}[\dimtotop]{\includegraphics[width=\paperwidth]{title-page-header}}}%
         }
 \end{flushleft}
-\Huge \textcolor{title}{''' + project + r''' Documentation}
+\Huge \textcolor{title}{''' + project + r'''}
 
 \Large \textcolor{subtitle}{\textit{''' + pdf_subtitle + r'''}}
 
