@@ -304,7 +304,7 @@ latex_elements = {
 \end{flushleft}
 \Huge \textcolor{title}{''' + project + r''' Documentation
 
-\Large \textcolor{subtitle}{\textit{''' + subtitle + r'''}}
+\Large \textcolor{subtitle}{\textit{''' + pdf_subtitle + r'''}}
 
 \vfill
 
