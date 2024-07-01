@@ -230,7 +230,6 @@ latex_elements = {
 %\usepackage{charter}
 %\usepackage[defaultsans]{lato}
 %\usepackage{inconsolata}
-\usepackage[a4paper, total={6in, 8in}, margin=1in]{geometry}
 \setmainfont[Path = ../../.sphinx/fonts/, UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
 \setmonofont[Path = ../../.sphinx/fonts/, UprightFont = *-R]{UbuntuMono}
 \usepackage[most]{tcolorbox}
@@ -310,11 +309,12 @@ latex_elements = {
 \vspace*{3cm}
 
 \begin{adjustwidth}{8cm}{0pt}
-\huge \textcolor{white}{\textbf{}{Ubuntu Server}}
-
+\begin{flushleft}
+    \huge \textcolor{white}{\textbf{}{\raggedright{''' + project + r'''}}}
+\end{flushleft}
 \end{adjustwidth}
 
-\vspace{17cm}
+\vspace{15cm}
 
 \begin{adjustwidth}{8cm}{0pt}
 \begin{tabularx}{0.5\textwidth}{ l l }
