@@ -301,7 +301,7 @@ latex_elements = {
 \begin{flushleft}
     \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=\paperwidth, height=\paperheight]{PDF-front-page.png}
+    \includegraphics[width=\paperwidth, height=\paperheight]{PDF-front-page}
     };
     \end{tikzpicture}
 \end{flushleft}
@@ -325,13 +325,6 @@ latex_elements = {
 \end{tabularx}
 \end{adjustwidth}
 
-\AddToHook{shipout/background}{
-    \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=3.46in]{title-page-footer.png}
-    };
-    \end{tikzpicture}
-}
 \end{titlepage}
 \RemoveFromHook{shipout/background}
 \AddToHook{shipout/background}{
@@ -342,7 +335,7 @@ latex_elements = {
       \end{tikzpicture}
       \begin{tikzpicture}[remember picture,overlay]
       \node[anchor=north east, opacity=0.5, inner sep=35] at (current page.north east) {
-        \includegraphics[width=4cm]{normal-page-header}
+        \includegraphics[width=4cm]{Canonical-logo-4x}
       };
       \end{tikzpicture}
     }
