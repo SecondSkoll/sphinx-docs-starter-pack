@@ -230,6 +230,7 @@ latex_elements = {
 %\usepackage{charter}
 %\usepackage[defaultsans]{lato}
 %\usepackage{inconsolata}
+\usepackage[a4paper, total={6in, 8in}, margin=1in]{geometry}
 \setmainfont[Path = ../../.sphinx/fonts/, UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
 \setmonofont[Path = ../../.sphinx/fonts/, UprightFont = *-R]{UbuntuMono}
 \usepackage[most]{tcolorbox}
@@ -330,7 +331,7 @@ latex_elements = {
 \AddToHook{shipout/background}{
       \begin{tikzpicture}[remember picture,overlay]
       \node[anchor=south west, align=left, inner sep=0] at (current page.south west) {
-        \includegraphics[width=6.72in]{normal-page-footer}
+        \includegraphics[width=\paperwidth]{normal-page-footer}
       };
       \end{tikzpicture}
       \begin{tikzpicture}[remember picture,overlay]
