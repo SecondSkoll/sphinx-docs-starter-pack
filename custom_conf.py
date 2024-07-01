@@ -242,6 +242,10 @@ latex_elements = {
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{fontspec}
+\usepackage{tikz}
+\usepackage{changepage}
+\usepackage{array}
+\usepackage{tabularx}
 \graphicspath{ {../../.sphinx/images/} }
 \definecolor{yellowgreen}{RGB}{154, 205, 50}
 \definecolor{title}{RGB}{76, 17, 48}
@@ -297,7 +301,7 @@ latex_elements = {
 \begin{flushleft}
     \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=\paperwidth, height=\paperheight]{PDF-front-page.png}
+    \includegraphics[width=\paperwidth, height=\paperheight]{front-page.png}
     };
     \end{tikzpicture}
 \end{flushleft}
