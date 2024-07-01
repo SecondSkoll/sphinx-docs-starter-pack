@@ -302,7 +302,7 @@ latex_elements = {
 \begin{flushleft}
     \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=\paperwidth, height=\paperheight]{PDF-front-page}
+    \includegraphics[width=\paperwidth, height=\paperheight]{front-page}
     };
     \end{tikzpicture}
 \end{flushleft}
