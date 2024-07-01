@@ -295,31 +295,41 @@ latex_elements = {
     'maketitle': r'''
 \begin{titlepage}
 \begin{flushleft}
-        \hbox
-        {%
-            \makebox[\dimtorightedge]{}%
-            \makebox[0pt][r]
-            {\raisebox{0pt}[\dimtotop]{\includegraphics[width=\paperwidth]{title-page-header}}}%
-        }
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south east, inner sep=0] at (current page.south east) {
+    \includegraphics[width=\paperwidth, height=\paperheight]{PDF-front-page.png}
+    };
+    \end{tikzpicture}
 \end{flushleft}
-\Huge \textcolor{title}{''' + project + r'''}
 
-\Large \textcolor{subtitle}{\textit{''' + pdf_subtitle + r'''}}
+\vspace*{3cm}
 
-\vfill
+\begin{adjustwidth}{6cm}{0pt}
+\Huge \textcolor{white}{Ubuntu Server}
 
-\textcolor{label}{''' + copyright + r'''}
+\Large \textcolor{white}{\textit{documentation}}
 
-\vfill
+\end{adjustwidth}
+
+\vspace{12cm}
+
+\begin{adjustwidth}{6cm}{0pt}
+\begin{tabularx}{0.5\textwidth}{ l l }
+    \textcolor{white}{© 2024 Canonical Ltd.}        &  \textcolor{white}{Confidential}        \\
+    \textcolor{white}{All rights reserved.}         &  \textcolor{white}{and proprietary,}    \\
+                                                    &  \textcolor{white}{do not share}        \\
+                                                    &  \textcolor{white}{without permission.} \\
+                                 
+\end{tabularx}
+\end{adjustwidth}
 
 \AddToHook{shipout/background}{
     \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=3.46in]{title-page-footer}
+    \includegraphics[width=3.46in]{title-page-footer.png}
     };
     \end{tikzpicture}
 }
-\thispagestyle{titlepage}
 \end{titlepage}
 \RemoveFromHook{shipout/background}
 \AddToHook{shipout/background}{
