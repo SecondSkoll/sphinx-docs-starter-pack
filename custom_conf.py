@@ -282,7 +282,7 @@ latex_elements = {
 }
 \fancypagestyle{titlepage}{%
     \fancyhf{}
-    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2023 Canonical Ltd. All rights reserved. \newline Confidential and proprietary, do not share without permission.}}
+    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2024 Canonical Ltd. All rights reserved. \newline Confidential and proprietary, do not share without permission.}}
 }
 \newcommand\sphinxbackoftitlepage{\thispagestyle{titlepage}}
 \titleformat{\chapter}[block]{\Huge \color{title} \bfseries\filright}{\thechapter .}{1.5ex}{}
@@ -301,28 +301,26 @@ latex_elements = {
 \begin{flushleft}
     \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=\paperwidth, height=\paperheight]{front-page.png}
+    \includegraphics[width=\paperwidth, height=\paperheight]{PDF-front-page.png}
     };
     \end{tikzpicture}
 \end{flushleft}
 
 \vspace*{3cm}
 
-\begin{adjustwidth}{6cm}{0pt}
-\Huge \textcolor{white}{Ubuntu Server}
-
-\Large \textcolor{white}{\textit{documentation}}
+\begin{adjustwidth}{8cm}{0pt}
+\huge \textcolor{white}{\textbf{}{Ubuntu Server}}
 
 \end{adjustwidth}
 
-\vspace{12cm}
+\vspace{17cm}
 
-\begin{adjustwidth}{6cm}{0pt}
+\begin{adjustwidth}{8cm}{0pt}
 \begin{tabularx}{0.5\textwidth}{ l l }
-    \textcolor{white}{© 2024 Canonical Ltd.}        &  \textcolor{white}{Confidential}        \\
-    \textcolor{white}{All rights reserved.}         &  \textcolor{white}{and proprietary,}    \\
-                                                    &  \textcolor{white}{do not share}        \\
-                                                    &  \textcolor{white}{without permission.} \\
+    \textcolor{lightgray}{© 2024 Canonical Ltd.}        &  \textcolor{lightgray}{Confidential}        \\
+    \textcolor{lightgray}{All rights reserved.}         &  \textcolor{lightgray}{and proprietary,}    \\
+                                                        &  \textcolor{lightgray}{do not share}        \\
+                                                        &  \textcolor{lightgray}{without permission.} \\
                                  
 \end{tabularx}
 \end{adjustwidth}
