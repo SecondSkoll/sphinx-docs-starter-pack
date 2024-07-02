@@ -246,6 +246,7 @@ latex_elements = {
 \usepackage{changepage}
 \usepackage{array}
 \usepackage{tabularx}
+\setlength{\tabcolsep}{32px}
 \graphicspath{ {../../.sphinx/images/} }
 \definecolor{yellowgreen}{RGB}{154, 205, 50}
 \definecolor{title}{RGB}{76, 17, 48}
@@ -318,10 +319,10 @@ latex_elements = {
 
 \begin{adjustwidth}{8cm}{0pt}
 \begin{tabularx}{0.5\textwidth}{ l l }
-    \textcolor{lightgray}{© 2024 Canonical Ltd.}        &  \textcolor{lightgray}{Confidential}        \\
-    \textcolor{lightgray}{All rights reserved.}         &  \textcolor{lightgray}{and proprietary,}    \\
-                                                        &  \textcolor{lightgray}{do not share}        \\
-                                                        &  \textcolor{lightgray}{without permission.} \\
+    \textcolor{lightgray}{}                    & \textcolor{lightgray}{© 2024 Canonical Ltd.}  \\
+    \textcolor{lightgray}{}                    & \textcolor{lightgray}{All rights reserved.}   \\
+    \textcolor{lightgray}{}                    &                                               \\
+    \textcolor{lightgray}{}                    &                                               \\
                                  
 \end{tabularx}
 \end{adjustwidth}
@@ -342,3 +343,10 @@ latex_elements = {
     }
 ''',
 }
+
+#    For proprietary documents, change the table to contain:
+#
+#    \textcolor{lightgray}{Confidential}           & \textcolor{lightgray}{© 2024 Canonical Ltd.}  \\
+#    \textcolor{lightgray}{and proprietary,}       & \textcolor{lightgray}{All rights reserved.}   \\
+#    \textcolor{lightgray}{do not share}           &                                               \\
+#    \textcolor{lightgray}{without permission.}    &                                               \\
