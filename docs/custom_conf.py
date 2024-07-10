@@ -221,7 +221,15 @@ rst_prolog = '''
 
 pdf_subtitle = ''
 
-include_patterns =  ("./.sphinx/fonts/Ubuntu-B.ttf", "./.sphinx/fonts/Ubuntu-R.ttf", "./.sphinx/fonts/Ubuntu-Rl.ttf", "./.sphinx/fonts/UbuntuMono-R.ttf", "./.sphinx/images/Canonical-logo-4x.png", "./.sphinx/images/front-page.png", "./.sphinx/images/normal-page-footer.pdf")
+latex_additional_files = [
+    "./.sphinx/fonts/Ubuntu-B.ttf",
+    "./.sphinx/fonts/Ubuntu-R.ttf",
+    "./.sphinx/fonts/Ubuntu-Rl.ttf",
+    "./.sphinx/fonts/UbuntuMono-R.ttf",
+    "./.sphinx/images/Canonical-logo-4x.png",
+    "./.sphinx/images/front-page.png",
+    "./.sphinx/images/normal-page-footer.pdf",
+]
 
 latex_engine = 'xelatex'
 # This whole thing is a hack and a half, but it works.
