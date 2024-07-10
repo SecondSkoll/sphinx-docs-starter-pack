@@ -221,15 +221,7 @@ rst_prolog = '''
 
 pdf_subtitle = ''
 
-latex_additional_files =  [
-    ".sphinx/fonts/Ubuntu-B.ttf",
-    ".sphinx/fonts/Ubuntu-R.ttf",
-    ".sphinx/fonts/Ubuntu-Rl.ttf",
-    ".sphinx/fonts/UbuntuMono-R.ttf",
-    ".sphinx/images/Canonical-logo-4x.png",
-    ".sphinx/images/front-page.png",
-    ".sphinx/images/normal-page-footer.pdf"
-]
+include_patterns =  ("./.sphinx/fonts/Ubuntu-B.ttf", "./.sphinx/fonts/Ubuntu-R.ttf", "./.sphinx/fonts/Ubuntu-Rl.ttf", "./.sphinx/fonts/UbuntuMono-R.ttf", "./.sphinx/images/Canonical-logo-4x.png", "./.sphinx/images/front-page.png", "./.sphinx/images/normal-page-footer.pdf")
 
 latex_engine = 'xelatex'
 # This whole thing is a hack and a half, but it works.
@@ -240,8 +232,8 @@ latex_elements = {
 %\usepackage{charter}
 %\usepackage[defaultsans]{lato}
 %\usepackage{inconsolata}
-\setmainfont[Path = ./, UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
-\setmonofont[Path = ./, UprightFont = *-R]{UbuntuMono}
+\setmainfont[Extension = .ttf, UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
+\setmonofont[UprightFont = UbuntuMono-R.ttf]{UbuntuMono}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{breakable}
 \usepackage{lastpage}
@@ -256,7 +248,6 @@ latex_elements = {
 \usepackage{changepage}
 \usepackage{array}
 \usepackage{tabularx}
-\graphicspath{ {../../.sphinx/images/} }
 \definecolor{yellowgreen}{RGB}{154, 205, 50}
 \definecolor{title}{RGB}{76, 17, 48}
 \definecolor{subtitle}{RGB}{116, 27, 71}
@@ -268,10 +259,10 @@ latex_elements = {
   \tcb@layer@dec%
 }
 \makeatother
-\newenvironment{sphinxclassprompt}{\color{yellowgreen}\setmonofont[Color = 9ACD32, Path = ./, UprightFont = *-R]{UbuntuMono}}{}
+\newenvironment{sphinxclassprompt}{\color{yellowgreen}\setmonofont[Color = 9ACD32, UprightFont = *-R]{UbuntuMono}}{}
 \tcbset{enhanced jigsaw, colback=black, fontupper=\color{white}}
 \newtcolorbox{termbox}{use color stack, breakable, colupper=white, halign=flush left}
-\newenvironment{sphinxclassterminal}{\setmonofont[Color = white, Path = ./, UprightFont = *-R]{UbuntuMono}\sphinxsetup{VerbatimColor={black}}\begin{termbox}}{\end{termbox}}
+\newenvironment{sphinxclassterminal}{\setmonofont[Color = white, UprightFont = *-R]{UbuntuMono}\sphinxsetup{VerbatimColor={black}}\begin{termbox}}{\end{termbox}}
 \newcommand{\dimtorightedge}{%
   \dimexpr\paperwidth-1in-\hoffset-\oddsidemargin\relax}
 \newcommand{\dimtotop}{%
