@@ -1,4 +1,16 @@
-.. _reStructuredText style guide: https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/style-guide/
-.. _Read the Docs at Canonical: https://library.canonical.com/documentation/read-the-docs
-.. _How to publish documentation on Read the Docs: https://library.canonical.com/documentation/publish-on-read-the-docs
-.. _Example product documentation: https://canonical-example-product-documentation.readthedocs-hosted.com/
+.. _CanonicalDiscourse: https://discourse.canonical.com
+.. _GitHub: https://github.com/
+.. _GitUbuntuBugs: https://bugs.launchpad.net/git-ubuntu
+.. _Launchpad: https://launchpad.net
+.. _UbuntuDiscourse: https://discourse.ubuntu.com
+
+.. _Edubuntu: https://edubuntu.org/
+.. _Kubuntu: https://kubuntu.org/
+.. _Lubuntu: https://lubuntu.me/
+.. _Ubuntu Budgie: https://ubuntubudgie.org/
+.. _Ubuntu Cinnamon: https://ubuntucinnamon.org/
+.. _Ubuntu Kylin: https://www.ubuntukylin.com/index-en.html
+.. _Ubuntu MATE: https://ubuntu-mate.org/
+.. _Ubuntu Studio: https://ubuntustudio.org/
+.. _Ubuntu Unity: https://ubuntuunity.org/
+.. _Xubuntu: https://xubuntu.org/
