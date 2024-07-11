@@ -13,8 +13,8 @@ build:
   jobs:
     post_checkout:
       - cd 'docs' && python3 build_requirements.py
-      - apt install fonts-ubuntu
-      - apt install fonts-ubuntu-console
+      - sudo apt install fonts-ubuntu
+      - sudo apt install fonts-ubuntu-console
     pre_build:
       - ls -a
     post_build:
