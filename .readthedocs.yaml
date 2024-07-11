@@ -13,8 +13,8 @@ build:
   jobs:
     post_checkout:
       - cd 'docs' && python3 build_requirements.py
-      - mkdir $READTHEDOCS_OUTPUT/pdf
-      - cp -a /docs/.sphinx/fonts/. $READTHEDOCS_OUTPUT/pdf 
+      - cd $READTHEDOCS_OUTPUT && mkdir pdf
+      - cd pdf && cp -a /docs/.sphinx/fonts/. . 
     pre_build:
       - ls -a
     post_build:
