@@ -17,9 +17,6 @@ build:
       - cp -a docs/.sphinx/fonts/. $READTHEDOCS_OUTPUT/pdf/
       - cp -a docs/.sphinx/images/. $READTHEDOCS_OUTPUT/pdf/
 
-    post_build:
-      - ls -aR
-
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
   builder: dirhtml
