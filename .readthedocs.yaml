@@ -13,15 +13,11 @@ build:
   jobs:
     post_checkout:
       - cd 'docs' && python3 build_requirements.py
-      - mkdir --parents $READTHEDOCS_OUTPUT/pdf/
-      - cp -a docs/.sphinx/fonts/. $READTHEDOCS_OUTPUT/pdf/
-      - cp -a docs/.sphinx/images/. $READTHEDOCS_OUTPUT/pdf/
+      - ls -aR
+    pre_build:
+      - ls -aR
     post_build:
-      - rm ./_readthedocs/pdf/front-page-light.pdf || true
-      - rm ./_readthedocs/pdf/normal-page-footer.pdf || true
-      - rm ./_readthedocs/pdf/*.png || true
-      - rm ./_readthedocs/pdf/*.ttf || true
-      - rmdir ./_readthedocs/pdf || true
+      - ls -aR
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
