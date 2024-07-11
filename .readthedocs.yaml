@@ -15,8 +15,8 @@ build:
       - cd 'docs' && python3 build_requirements.py
       - mkdir --parents $READTHEDOCS_OUTPUT/pdf/
     post_build:
-      - [[ $(ls -1 ./_readthedocs/pdf | wc -l) == 1 ]] && echo "1 file" || echo "Not 1" && rm -r ./_readthedocs/pdf
-
+      - if [ $(ls -1 ./_readthedocs/pdf | wc -l) != 1 ]; then rm -r ./_readthedocs/pdf; fi
+      
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
   builder: dirhtml
