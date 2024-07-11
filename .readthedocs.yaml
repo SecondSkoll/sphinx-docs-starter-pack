@@ -14,7 +14,7 @@ build:
     post_checkout:
       - cd 'docs' && python3 build_requirements.py
       - mkdir --parents $READTHEDOCS_OUTPUT/pdf/
-      - cp .sphinx/fonts/. $READTHEDOCS_OUTPUT/pdf/
+      - cp docs/.sphinx/fonts/. $READTHEDOCS_OUTPUT/pdf/
 
     pre_build:
       - ls -a
