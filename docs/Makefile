@@ -126,8 +126,6 @@ pdf-prep-force:
 
 pdf: pdf-prep
 	@. $(VENV); sphinx-build -M latexpdf "$(SOURCEDIR)" "_build" $(SPHINXOPTS)
-	@. $(VENV); rm _build/front-page-light.pdf
-	@. $(VENV); rm _build/normal-page-footer.pdf
 	@. $(VENV); find ./_build/latex -name "*.pdf" -exec mv -t ./ {} +
 	@. $(VENV); rm -r _build
 
