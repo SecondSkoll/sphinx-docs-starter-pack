@@ -295,7 +295,6 @@ latex_elements = {
 \usepackage{changepage}
 \usepackage{array}
 \usepackage{tabularx}
-\graphicspath{ {../../.sphinx/images/} }
 \definecolor{yellowgreen}{RGB}{154, 205, 50}
 \definecolor{title}{RGB}{76, 17, 48}
 \definecolor{subtitle}{RGB}{116, 27, 71}
