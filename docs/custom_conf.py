@@ -248,13 +248,11 @@ epub_show_urls = 'no'
 
 latex_additional_files = [
     "./.sphinx/fonts/Ubuntu-B.ttf",
-    "./.sphinx/fonts/Ubuntu-BI.ttf",
     "./.sphinx/fonts/Ubuntu-R.ttf",
-    "./.sphinx/fonts/Ubuntu-Rl.ttf",
+    "./.sphinx/fonts/Ubuntu-RI.ttf",
     "./.sphinx/fonts/UbuntuMono-R.ttf",
     "./.sphinx/fonts/UbuntuMono-RI.ttf",
     "./.sphinx/fonts/UbuntuMono-B.ttf",
-    "./.sphinx/fonts/UbuntuMono-BI.ttf",
     "./.sphinx/images/Canonical-logo-4x.png",
     "./.sphinx/images/front-page.png",
     "./.sphinx/images/normal-page-footer.pdf",
