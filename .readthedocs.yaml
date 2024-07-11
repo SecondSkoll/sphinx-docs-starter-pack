@@ -19,8 +19,8 @@ build:
 
     post_build:
       - ls -a
-      - cd $READTHEDOCS_OUTPUT && rm pdf/front-page-light.pdf
-      - cd $READTHEDOCS_OUTPUT && rm pdf/normal-page-footer.pdf
+      - cd $READTHEDOCS_OUTPUT && rm ./pdf/front-page-light.pdf
+      - cd $READTHEDOCS_OUTPUT && rm ./pdf/normal-page-footer.pdf
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
