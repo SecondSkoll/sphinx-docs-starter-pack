@@ -13,8 +13,8 @@ build:
   jobs:
     post_checkout:
       - cd 'docs' && python3 build_requirements.py
-      - sudo apt install fonts-ubuntu
-      - sudo apt install fonts-ubuntu-console
+      - mkdir $READTHEDOCS_OUTPUT/pdf
+      - cp -a /docs/.sphinx/fonts/. $READTHEDOCS_OUTPUT/pdf 
     pre_build:
       - ls -a
     post_build:
