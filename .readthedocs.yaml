@@ -17,11 +17,7 @@ build:
       - cp -a docs/.sphinx/fonts/. $READTHEDOCS_OUTPUT/pdf/
       - cp -a docs/.sphinx/images/. $READTHEDOCS_OUTPUT/pdf/
     post_build:
-      - rm ./_readthedocs/pdf/front-page-light.pdf || true
-      - rm ./_readthedocs/pdf/normal-page-footer.pdf || true
-      - rm ./_readthedocs/pdf/*.png || true
-      - rm ./_readthedocs/pdf/*.ttf || true
-      - rmdir ./_readthedocs/pdf || true
+      - if [ $(ls -1 ./_readthedocs/pdf | wc -l) != 1 ]; then rm -r ./_readthedocs/pdf; fi
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
