@@ -216,6 +216,7 @@ custom_tags = []
 ### -- Options for PDF output ------------------------------
 ############################################################
 
+latex_documents = [('index', 'doc-name.tex', project, author, 'manual'), ('readme', 'doc-name2.tex', project, author, 'how-to')]
 
 ############################################################
 ### Additional configuration
