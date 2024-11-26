@@ -39,8 +39,9 @@ The starter pack uses default workflows from the
 `documentation-workflows <https://github.com/canonical/documentation-workflows/>`_
 repository.
 
-The current defaults force usage of Canonical hosted runners, which some projects
-may not be able to use. You may select your own runners with an override, see line 7 below:
+It is encouraged for any projects in private repositories to use Canonical hosted
+runners for documentation actions. This can be done by passing a `runs-on` key
+to the underlying action. For example, see line 7 below:
 
 .. code-block::
    :emphasize-lines: 7
@@ -52,5 +53,5 @@ may not be able to use. You may select your own runners with an override, see li
       with:
          working-directory: "sp-docs"
          fetch-depth: 0
-         runs-on: "ubuntu-22.04"
+         runs-on: "[self-hosted, Linux, amd64, noble]"
 
