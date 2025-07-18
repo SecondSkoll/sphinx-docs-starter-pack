@@ -47,7 +47,8 @@ jobs:
           COMPARE_URLS_PATH="compare/docs/urls.txt"
           removed=$(comm -23 ${BASE_URLS_PATH} ${COMPARE_URLS_PATH} )
           if [ -n "$removed" ]; then
-            echo "The following URLs were removed:"
-            echo "$removed"
+            echo -e "ERROR: The following paths were moved but not redirected:\n\n"
+            echo -e "$removed\n\n"
+            echo "Redirect them to existing paths in the docs."
             exit 1
           fi

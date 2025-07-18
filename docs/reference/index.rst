@@ -15,6 +15,5 @@ Contents
    :maxdepth: 1
 
    automatic_checks
-   removed-url-check
    rst-syntax-reference
    myst-syntax-reference
