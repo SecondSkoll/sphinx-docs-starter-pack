@@ -183,7 +183,7 @@ html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
 html_theme_options = {}
 if os.environ.get("READTHEDOCS_VERSION") == "latest":
-    html_theme_options["announcement"] = "<em>Important</em> Some announcement about being a development branch here!"
+    html_theme_options["announcement"] = "<em>This documentation is for a development version of PRODUCT</em>. Features and descriptions may be unstable, and could change before release. Use at your own risk."
 
 if 'READTHEDOCS_VERSION' in os.environ:
     version = os.environ["READTHEDOCS_VERSION"]
