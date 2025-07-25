@@ -110,7 +110,7 @@ html_context = {
     # Product tag image; the orange part of your logo, shown in the page header
     #
     # TODO: To add a tag image, uncomment and update as needed.
-    # 'product_tag': '_static/tag.png',
+    'product_tag': '_static/tag.png',
     # Your Discourse instance URL
     #
     # TODO: Change to your Discourse instance URL or leave empty.
@@ -181,8 +181,11 @@ html_baseurl = 'https://canonical-starter-pack.readthedocs-hosted.com/'
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
-
+html_theme_options = {}
 if 'READTHEDOCS_VERSION' in os.environ:
+    if os.environ["READTHEDOCS_VERSION"] == "latest":
+        html_theme_options["announcement"] = "<em>Important</em> Some announcement about being a development branch here!"
+
     version = os.environ["READTHEDOCS_VERSION"]
     sitemap_url_scheme = '{version}{link}'
 else:
@@ -196,7 +199,7 @@ sitemap_show_lastmod = True
 # Template and asset locations
 #######################
 
-#html_static_path = ["_static"]
+html_static_path = ["_static"]
 templates_path = ["_templates"]
 
 
