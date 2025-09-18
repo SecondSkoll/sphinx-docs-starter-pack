@@ -1,7 +1,7 @@
 Documentation starter pack
 ==========================
 
-Version 1.2.0
+Version 1.4.0
 
 The documentation starter pack helps you to quickly set up, build, and publish documentation with Sphinx.
 
