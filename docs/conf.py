@@ -169,7 +169,7 @@ html_context = {
 # TODO: If your documentation is hosted on https://docs.ubuntu.com/,
 #       uncomment and update as needed.
 
-# slug = ''
+slug = 'product_1/docs'
 
 #######################
 # Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
