@@ -3,6 +3,8 @@ Documentation starter pack
 
 Version 1.5.0
 
+Download this as a PDF! https://staging.canonical.com/_/downloads/enterprise-store/en/main/pdf/ or https://documentation.ubuntu.com/_/downloads/enterprise-store/en/main/pdf/ !
+
 The documentation starter pack helps you to quickly set up, build, and publish documentation with Sphinx.
 
 It contains common styling and configuration through the `Canonical Sphinx`_ extension, supports both |RST| and Markdown, and includes automatic documentation checks.
