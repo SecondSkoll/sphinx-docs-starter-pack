@@ -70,7 +70,7 @@ copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
 # NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
 #       and is used by social media platforms; see https://ogp.me/
 
-ogp_site_url = "https://canonical-starter-pack.readthedocs-hosted.com/"
+ogp_site_url = "https://staging.canonical.com/product_1/docs/"
 
 
 # Preview name of the documentation website
@@ -132,7 +132,7 @@ html_context = {
     #
     # NOTE: If set, links for viewing the documentation source files
     #       and creating GitHub issues are added at the bottom of each page.
-    "github_url": "https://github.com/canonical/sphinx-docs-starter-pack",
+    "github_url": "https://github.com/secondskoll/sphinx-docs-starter-pack",
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
@@ -177,7 +177,7 @@ slug = 'product_1/docs'
 
 # Base URL of RTD hosted project
 
-html_baseurl = 'https://staging.canonical.com/product_1/docs/'
+html_baseurl = f'https://staging.canonical.com/product_1/docs/{os.environ.get("READTHEDOCS_VERSION")}/'
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
@@ -185,15 +185,17 @@ html_theme_options = {}
 if os.environ.get("READTHEDOCS_VERSION") == "latest":
     html_theme_options["announcement"] = "<em>This documentation is for a development version of PRODUCT</em>. Features and descriptions may be unstable, and could change before release. Use at your own risk."
 
-if 'READTHEDOCS_VERSION' in os.environ:
-    version = os.environ["READTHEDOCS_VERSION"]
-    sitemap_url_scheme = '{version}{link}'
-else:
-    sitemap_url_scheme = 'MANUAL/{link}'
+sitemap_url_scheme = '{link}'
 
 # Include `lastmod` dates in the sitemap:
 
 sitemap_show_lastmod = True
+
+sitemap_excludes = [
+    "genindex/",
+    "404/",
+    "search/",
+]
 
 #######################
 # Template and asset locations
