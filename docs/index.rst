@@ -1,9 +1,7 @@
 Documentation starter pack
 ==========================
 
-Version 1.5.0
-
-Download this as a PDF! https://staging.canonical.com/_/downloads/enterprise-store/en/stable/pdf/ or https://documentation.ubuntu.com/_/downloads/enterprise-store/en/stable/pdf/ !
+`Download this as a PDF! <https://staging.canonical.com/_/downloads/enterprise-store/en/stable/pdf/ or https://documentation.ubuntu.com/_/downloads/enterprise-store/en/stable/pdf/>`_
 
 The documentation starter pack helps you to quickly set up, build, and publish documentation with Sphinx.
 
