@@ -1,4 +1,16 @@
 // overwrite_links_specific.js
+
+console.stdlog = console.log.bind(console);
+console.logs = [];
+
+console.log = function() {
+    // 1. Store the arguments in the logs array
+    console.logs.push(Array.from(arguments));
+
+    // 2. Call the original console.log to still output to the browser console
+    console.stdlog.apply(console, arguments);
+};
+
 window.onload = function() {
     var anchors = document.querySelector('readthedocs-flyout').querySelectorAll('a');
     var oldDomain = "canonical-rtd-testing.readthedocs-hosted.com";
@@ -6,7 +18,9 @@ window.onload = function() {
 
     for (var i = 0; i < anchors.length; i++) {
         // Use a regular expression with the 'g' flag for global replacement
+        console.log(`Checking URL for replacement: ${anchors[i].href}`);
         anchors[i].href = anchors[i].href.replace(new RegExp(oldDomain, 'g'), newDomain);
+        console.log(`URL result: ${anchors[i].href}`);
     }
 };
 
