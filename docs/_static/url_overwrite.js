@@ -17,23 +17,21 @@ console.log = function() {
     console.stdlog.apply(console, arguments);
 };
 
-window.addEventListener('load', function() {
-    const rtdflyout = document.querySelector('readthedocs-flyout');
-    rtdflyout.addEventListener('click', function(e) {
-        setTimeout(() => {
-            // Access the shadow DOM of the 'readthedocs-flyout' element
-            const shadowRoot = rtdflyout.shadowRoot;
 
-            const anchors = shadowRoot.querySelectorAll('a');
-            anchors.forEach(anchor => {
-                console.log(`Checking URL for replacement: ${anchor.href}`);
-                anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
-                console.log(`URL now: ${anchor.href}`);
-            }
-            );}, 50);
+const rtdflyout = document.querySelector('readthedocs-flyout');
+rtdflyout.addEventListener('click', function(e) {
+    setTimeout(() => {
+        // Access the shadow DOM of the 'readthedocs-flyout' element
+        const shadowRoot = rtdflyout.shadowRoot;
+
+        const anchors = shadowRoot.querySelectorAll('a');
+        anchors.forEach(anchor => {
+            console.log(`Checking URL for replacement: ${anchor.href}`);
+            anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
+            console.log(`URL now: ${anchor.href}`);
         }
-    );
-}
+        );}, 50);
+    }
 );
 
 
