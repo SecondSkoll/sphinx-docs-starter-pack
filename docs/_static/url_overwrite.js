@@ -22,6 +22,7 @@ const shadowRoot = shadowHost.shadowRoot;
 
 // On window load, find all relevant anchor tags and replace URLs
 window.addEventListener('load', function() {
+        Thread.sleep(1000);  // Wait for 1 second to ensure all elements are loaded
         const anchors = shadowRoot.querySelectorAll('a');
         anchors.forEach(anchor => {
             // console.log(`Checking URL for replacement: ${anchor.href}`);
