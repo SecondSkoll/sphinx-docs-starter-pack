@@ -365,4 +365,4 @@ intersphinx_mapping = {
 }
 
 def setup(app):
-    app.add_js_file('url_overwrite.js', loading_method='defer')
+    app.add_js_file('url_overwrite.js', loading_method='defer', priority=1000)
