@@ -1,10 +1,6 @@
 Documentation starter pack
 ==========================
 
-`Download this as a PDF! <https://staging.canonical.com/_/downloads/en/latest/pdf/>`_
-
-Another test - using the URL overwrite: `Something <https://canonical-rtd-testing.readthedocs-hosted.com/_/downloads/en/1.7.3/pdf/>`_
-
 The documentation starter pack helps you to quickly set up, build, and publish documentation with Sphinx.
 
 It contains common styling and configuration through the `Canonical Sphinx`_ extension, supports both |RST| and Markdown, and includes automatic documentation checks.
