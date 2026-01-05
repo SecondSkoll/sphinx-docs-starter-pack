@@ -18,9 +18,9 @@ console.log = function() {
 };
 
 window.addEventListener('load', function() {
-    const rtdflyout = this.document.querySelector('readthedocs-flyout');
+    const rtdflyout = document.querySelector('readthedocs-flyout');
     rtdflyout.addEventListener('click', function(e) {
-        this.setTimeout(() => {
+        setTimeout(() => {
             // Access the shadow DOM of the 'readthedocs-flyout' element
             const shadowRoot = rtdflyout.shadowRoot;
 
