@@ -25,7 +25,8 @@ if (shadowRoot) {
     var anchors = shadowRoot.querySelectorAll('a');
     for (var i = 0; i < anchors.length; i++) {
         // Use a regular expression with the 'g' flag for global replacement
+        console.log(`Checking URL for replacement: ${anchors[i].href}`);
         anchors[i].href = anchors[i].href.replace(new RegExp(oldDomain, 'g'), newDomain);
-        console.log(`Replaced URL in shadow DOM: ${anchors[i].href}`);
+        console.log(`URL now: ${anchors[i].href}`);
     }
 }
