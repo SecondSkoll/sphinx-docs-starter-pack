@@ -300,9 +300,9 @@ exclude_patterns = [
 
 # Adds custom JavaScript files, located under 'html_static_path'
 
-html_js_files = [
-    'url_overwrite.js',
-]
+# html_js_files = [
+#     'url_overwrite.js',
+# ]
 
 
 # Specifies a reST snippet to be appended to each .rst file
@@ -363,3 +363,6 @@ if os.path.exists('./reuse/substitutions.yaml'):
 intersphinx_mapping = {
     'starter-pack': ('https://canonical-example-product-documentation.readthedocs-hosted.com/en/latest', None)
 }
+
+def setup(app):
+    app.add_js_file('url_overwrite.js', loading_method='defer')
