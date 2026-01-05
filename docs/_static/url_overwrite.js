@@ -26,9 +26,9 @@ window.addEventListener('load', function() {
 
         const anchors = shadowRoot.querySelectorAll('a');
         anchors.forEach(anchor => {
-            // console.log(`Checking URL for replacement: ${anchor.href}`);
+            console.log(`Checking URL for replacement: ${anchor.href}`);
             anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
-            // console.log(`URL now: ${anchor.href}`);
+            console.log(`URL now: ${anchor.href}`);
         }
         );
     }
