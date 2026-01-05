@@ -1,5 +1,9 @@
 // overwrite links.js
 
+// Replace oldDomain with newDomain
+const oldDomain = 'canonical-rtd-testing.readthedocs-hosted.com';
+const newDomain = 'staging.canonical.com/product_1';
+
 // Logging for debugging purposes
 console.stdlog = console.log.bind(console);
 console.logs = [];
@@ -12,17 +16,14 @@ console.log = function() {
     console.stdlog.apply(console, arguments);
 };
 
-// Replace oldDomain with newDomain
-const oldDomain = 'canonical-rtd-testing.readthedocs-hosted.com';
-const newDomain = 'staging.canonical.com/product_1';
-
-// Access the shadow DOM of the 'readthedocs-flyout' element
-const shadowHost = document.querySelector('readthedocs-flyout');
-const shadowRoot = shadowHost.shadowRoot;
-
 // On window load, find all relevant anchor tags and replace URLs
 window.addEventListener('load', function() {
         Thread.sleep(1000);  // Wait for 1 second to ensure all elements are loaded
+
+        // Access the shadow DOM of the 'readthedocs-flyout' element
+        const shadowHost = document.querySelector('readthedocs-flyout');
+        const shadowRoot = shadowHost.shadowRoot;
+
         const anchors = shadowRoot.querySelectorAll('a');
         anchors.forEach(anchor => {
             // console.log(`Checking URL for replacement: ${anchor.href}`);
