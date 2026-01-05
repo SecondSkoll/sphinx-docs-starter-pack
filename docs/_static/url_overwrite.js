@@ -30,7 +30,7 @@ window.addEventListener('load', function() {
                 anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
                 console.log(`URL now: ${anchor.href}`);
             }
-            );}, 1000);
+            );}, 50);
         }
     );
 }
