@@ -32,7 +32,6 @@ console.log("logging...")
 // }
 
 window.addEventListener('load', function() {
-    if (shadowRoot) {
         const anchors = shadowRoot.querySelectorAll('a');
         anchors.forEach(anchor => {
             // Use a regular expression with the 'g' flag for global replacement
@@ -42,5 +41,4 @@ window.addEventListener('load', function() {
         }
         );
     }
-}
 );
