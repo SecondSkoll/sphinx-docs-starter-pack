@@ -18,8 +18,7 @@ console.log = function() {
 
 // On window load, find all relevant anchor tags and replace URLs
 window.addEventListener('load', function() {
-        Thread.sleep(1000);  // Wait for 1 second to ensure all elements are loaded
-
+    this.setTimeout(() => {
         // Access the shadow DOM of the 'readthedocs-flyout' element
         const shadowHost = document.querySelector('readthedocs-flyout');
         const shadowRoot = shadowHost.shadowRoot;
@@ -30,6 +29,6 @@ window.addEventListener('load', function() {
             anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
             console.log(`URL now: ${anchor.href}`);
         }
-        );
+        );}, 2000);
     }
 );
