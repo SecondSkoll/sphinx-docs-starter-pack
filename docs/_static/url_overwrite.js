@@ -17,19 +17,21 @@ const newDomain = 'staging.canonical.com/product_1/docs';
 // };
 
 
-const rtdflyout = document.querySelector('readthedocs-flyout');
-rtdflyout.addEventListener('click', function(e) {
+window.addEventListener('load', function() {
     setTimeout(() => {
+    const rtdflyout = document.querySelector('readthedocs-flyout');
+    rtdflyout.addEventListener('click', function(e) {
         // Access the shadow DOM of the 'readthedocs-flyout' element
         const shadowRoot = rtdflyout.shadowRoot;
 
         const anchors = shadowRoot.querySelectorAll('a');
         anchors.forEach(anchor => {
-            // console.log(`Checking URL for replacement: ${anchor.href}`);
+            console.log(`Checking URL for replacement: ${anchor.href}`);
             anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
-            // console.log(`URL now: ${anchor.href}`);
+            console.log(`URL now: ${anchor.href}`);
         }
-        );}, 50);
-    }
+        )
+        }
+    );}, 1000);
+}
 );
-
