@@ -31,6 +31,7 @@ function waitForElement(element, callback){
 }
 
 waitForElement("readthedocs-flyout", function(){
+    console.log(`Triggering URL rewrite`)
     const rtdFlyout = document.querySelector('readthedocs-flyout');
     rtdFlyout.addEventListener('load', function() {
         setTimeout(() => {
