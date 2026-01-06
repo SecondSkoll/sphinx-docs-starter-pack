@@ -17,7 +17,7 @@ const newDomain = 'staging.canonical.com/product_1/docs';
 // };
 
 
-window.addEventListener('load', function() {
+window.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
     const rtdflyout = document.querySelector('readthedocs-flyout');
     rtdflyout.addEventListener('click', function(e) {
