@@ -16,21 +16,37 @@ const newDomain = 'staging.canonical.com/product_1/docs';
 //     console.stdlog.apply(console, arguments);
 // };
 
-const rtdFlyout = document.querySelector('readthedocs-flyout');
+const targetNode = document.body;
+const config = { childList: true, subtree: true };
 
-rtdFlyout.addEventListener('load', function() {
-    setTimeout(() => {
-    rtdFlyout.addEventListener('click', function(e) {
-        // Access the shadow DOM of the 'readthedocs-flyout' element
-        const shadowRoot = rtdFlyout.shadowRoot;
-        const anchors = shadowRoot.querySelectorAll('a');
-        anchors.forEach(anchor => {
-            console.log(`Checking URL for replacement: ${anchor.href}`);
-            anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
-            console.log(`URL now: ${anchor.href}`);
+const callback = function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            const rtdFlyout = document.querySelector('readthedocs-flyout');
+            if (rtdFlyout) {
+
+                rtdFlyout.addEventListener('load', function() {
+                    setTimeout(() => {
+                    rtdFlyout.addEventListener('click', function(e) {
+                        // Access the shadow DOM of the 'readthedocs-flyout' element
+                        const shadowRoot = rtdFlyout.shadowRoot;
+                        const anchors = shadowRoot.querySelectorAll('a');
+                        anchors.forEach(anchor => {
+                            console.log(`Checking URL for replacement: ${anchor.href}`);
+                            anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
+                            console.log(`URL now: ${anchor.href}`);
+                        }
+                        )
+                        },
+                    observer.disconnect()
+                    );}, 1000);
+                }
+                )
+            }
+
         }
-        )
-        }
-    );}, 1000);
-}
-);
+    }
+};
+
+const observer = new MutationObserver(callback);
+observer.observe(targetNode, config);
