@@ -24,7 +24,7 @@ import yaml
 #
 # TODO: Update with the official name of your project or product
 
-project = "Documentation starter pack"
+project = "Canonical Documentation"
 author = "Canonical Ltd."
 
 
@@ -34,7 +34,7 @@ author = "Canonical Ltd."
 #
 # TODO: To disable the title, set to an empty string.
 
-html_title = project + " documentation"
+html_title = project
 
 
 # Copyright string; shown at the bottom of the page
@@ -70,7 +70,7 @@ copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
 # NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
 #       and is used by social media platforms; see https://ogp.me/
 
-ogp_site_url = "https://staging.canonical.com/product_1/docs/"
+ogp_site_url = "https://staging.canonical.com/*/docs/"
 
 
 # Preview name of the documentation website
@@ -132,7 +132,7 @@ html_context = {
     #
     # NOTE: If set, links for viewing the documentation source files
     #       and creating GitHub issues are added at the bottom of each page.
-    "github_url": "https://github.com/secondskoll/sphinx-docs-starter-pack",
+    "github_url": "https://github.com/canonical/sphinx-docs-starter-pack",
     # Docs branch in the repo; used in links for viewing the source files
     #
     # TODO: To customise the branch, uncomment and update as needed.
@@ -169,7 +169,7 @@ html_context = {
 # TODO: If your documentation is hosted on https://docs.ubuntu.com/,
 #       uncomment and update as needed.
 
-slug = 'product_1/docs'
+slug = '*/docs'
 
 #######################
 # Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
@@ -177,7 +177,7 @@ slug = 'product_1/docs'
 
 # Base URL of RTD hosted project
 
-html_baseurl = f'https://staging.canonical.com/product_1/docs/{os.environ.get("READTHEDOCS_VERSION")}/'
+html_baseurl = f'https://staging.canonical.com/*/docs/{os.environ.get("READTHEDOCS_VERSION")}/'
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
@@ -217,13 +217,6 @@ templates_path = ["_templates"]
 
 # NOTE: If undefined, set to None, or empty,
 #       the sphinx_reredirects extension will be disabled.
-
-redirects = {
-    'reference/doc-cheat-sheet-myst/': '/reference/myst-syntax-reference',
-    'reference/doc-cheat-sheet/': '/reference/rst-syntax-reference',
-    'reference/style-guide-myst/': '/reference/myst-syntax-reference',
-    'reference/style-guide/': '/reference/rst-syntax-reference',
-}
 
 
 ###########################
