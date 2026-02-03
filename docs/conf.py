@@ -70,7 +70,7 @@ copyright = "%s CC-BY-SA, %s" % (datetime.date.today().year, author)
 # NOTE: The Open Graph Protocol (OGP) enhances page display in a social graph
 #       and is used by social media platforms; see https://ogp.me/
 
-ogp_site_url = "https://staging.canonical.com/*/docs/"
+ogp_site_url = "https://staging.canonical.com/404/docs/"
 
 
 # Preview name of the documentation website
@@ -169,7 +169,7 @@ html_context = {
 # TODO: If your documentation is hosted on https://docs.ubuntu.com/,
 #       uncomment and update as needed.
 
-slug = '*/docs'
+slug = '404/docs'
 
 #######################
 # Sitemap configuration: https://sphinx-sitemap.readthedocs.io/
@@ -177,7 +177,7 @@ slug = '*/docs'
 
 # Base URL of RTD hosted project
 
-html_baseurl = f'https://staging.canonical.com/*/docs/{os.environ.get("READTHEDOCS_VERSION")}/'
+html_baseurl = f'https://staging.canonical.com/404/docs/{os.environ.get("READTHEDOCS_VERSION")}/'
 
 # URL scheme. Add language and version scheme elements.
 # When configured with RTD variables, check for RTD environment so manual runs succeed:
