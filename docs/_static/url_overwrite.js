@@ -1,11 +1,27 @@
-// overwrite links.js
-
 // Replace oldDomain with newDomain
 const oldDomain = 'canonical-rtd-testing.readthedocs-hosted.com';
-const newDomain = 'staging.canonical.com/product_1/docs';
+const newDomain = 'staging.canonical.com/test_product/docs';
+
+function escapeRegExp(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function overwriteMatchingAnchorUrls(container) {
+    if (!container) return;
+
+    const anchors = container.querySelectorAll('a[href]');
+    const oldDomainRegex = new RegExp(escapeRegExp(oldDomain), 'g');
+
+    anchors.forEach(anchor => {
+        anchor.href = anchor.href.replace(oldDomainRegex, newDomain);
+    });
+}
+
+overwriteMatchingAnchorUrls(document.querySelector('head'));
 
 // Use a MutationObserver to wait for the RTD flyout element to appear in the DOM
 const observer = new MutationObserver(function(mutations, obs) {
+
     const rtdFlyout = document.querySelector('readthedocs-flyout');
     if (!rtdFlyout) return;
 
@@ -15,10 +31,7 @@ const observer = new MutationObserver(function(mutations, obs) {
         const shadowRoot = rtdFlyout.shadowRoot;
         if (!shadowRoot) return;
 
-        const anchors = shadowRoot.querySelectorAll('a');
-        anchors.forEach(anchor => {
-            anchor.href = anchor.href.replace(new RegExp(oldDomain, 'g'), newDomain);
-        });
+        overwriteMatchingAnchorUrls(shadowRoot);
     });
 });
 
