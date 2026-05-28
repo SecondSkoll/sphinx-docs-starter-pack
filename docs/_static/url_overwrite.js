@@ -1,6 +1,6 @@
-// Replace oldDomain with newDomain
-const oldDomain = 'canonical-rtd-testing.readthedocs-hosted.com';
-const newDomain = 'staging.canonical.com/test_product/docs';
+// Replace RTDDomain with canonicalDomain
+const RTDDomain = 'canonical-rtd-testing.readthedocs-hosted.com';
+const canonicalDomain = 'staging.canonical.com/test_product/docs';
 
 function escapeRegExp(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -9,11 +9,11 @@ function escapeRegExp(value) {
 function overwriteMatchingAnchorUrls(container) {
     if (!container) return;
 
-    const anchors = container.querySelectorAll('a[href]');
-    const oldDomainRegex = new RegExp(escapeRegExp(oldDomain), 'g');
+    const anchors = container.querySelectorAll('a[href], link[href]');
+    const RTDDomainRegex = new RegExp(escapeRegExp(RTDDomain), 'g');
 
     anchors.forEach(anchor => {
-        anchor.href = anchor.href.replace(oldDomainRegex, newDomain);
+        anchor.href = anchor.href.replace(RTDDomainRegex, canonicalDomain);
     });
 }
 
