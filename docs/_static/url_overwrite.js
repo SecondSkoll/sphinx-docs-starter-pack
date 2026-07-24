@@ -50,11 +50,6 @@ function patchNotification() {
   overwriteMatchingAnchorUrls(rtdNotification);
   overwriteMatchingAnchorUrls(rtdNotification.shadowRoot);
 
-  rtdNotification.addEventListener('click', () => {
-    overwriteMatchingAnchorUrls(rtdNotification);
-    overwriteMatchingAnchorUrls(rtdNotification.shadowRoot);
-  });
-
   return true;
 }
 
