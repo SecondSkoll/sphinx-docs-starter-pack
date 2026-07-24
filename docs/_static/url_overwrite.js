@@ -1,38 +1,96 @@
-// Replace RTDDomain with canonicalDomain
-const RTDDomain = 'canonical-rtd-testing.readthedocs-hosted.com';
-const canonicalDomain = 'staging.canonical.com/test_product/docs';
+// Replaces rtd-address with new-address in links
+
+const rtd_address = 'canonical-rtd-testing.readthedocs-hosted.com';
+const new_address = 'staging.canonical.com/product_1/docs';
+const new_path = '/' + new_address.split('/').slice(1).join('/');
 
 function escapeRegExp(value) {
-    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function overwriteMatchingAnchorUrls(container) {
-    if (!container) return;
+  if (!container) return;
 
-    const anchors = container.querySelectorAll('a[href], link[href]');
-    const RTDDomainRegex = new RegExp(escapeRegExp(RTDDomain), 'g');
-
-    anchors.forEach(anchor => {
-        anchor.href = anchor.href.replace(RTDDomainRegex, canonicalDomain);
-    });
+  const rtd_addressRegex = new RegExp(escapeRegExp(rtd_address), 'g');
+  container.querySelectorAll('a[href], link[href]').forEach((anchor) => {
+    anchor.href = anchor.href.replace(rtd_addressRegex, new_address);
+  });
 }
 
-overwriteMatchingAnchorUrls(document.querySelector('head'));
+function prependPathToAnchorUrls(container, path) {
+  if (!container) return;
 
-// Use a MutationObserver to wait for the RTD flyout element to appear in the DOM
-const observer = new MutationObserver(function(mutations, obs) {
+  container.querySelectorAll('a[href], link[href]').forEach((anchor) => {
+    const href = anchor.getAttribute('href');
+    if (href && !href.startsWith(path)) {
+      anchor.setAttribute('href', path + href);
+    }
+  });
+}
 
-    const rtdFlyout = document.querySelector('readthedocs-flyout');
-    if (!rtdFlyout) return;
+function patchFlyout() {
+  const rtdFlyout = document.querySelector('readthedocs-flyout');
+  if (!rtdFlyout) return false;
 
-    obs.disconnect();
+  overwriteMatchingAnchorUrls(rtdFlyout);
+  overwriteMatchingAnchorUrls(rtdFlyout.shadowRoot);
 
-    rtdFlyout.addEventListener('click', function() {
-        const shadowRoot = rtdFlyout.shadowRoot;
-        if (!shadowRoot) return;
+  rtdFlyout.addEventListener('click', () => {
+    overwriteMatchingAnchorUrls(rtdFlyout);
+    overwriteMatchingAnchorUrls(rtdFlyout.shadowRoot);
+  });
 
-        overwriteMatchingAnchorUrls(shadowRoot);
-    });
-});
+  return true;
+}
 
-observer.observe(document.body, { childList: true, subtree: true });
+function patchNotification() {
+  const rtdNotification = document.querySelector('readthedocs-notification');
+  if (!rtdNotification) return false;
+
+  overwriteMatchingAnchorUrls(rtdNotification);
+  overwriteMatchingAnchorUrls(rtdNotification.shadowRoot);
+
+  rtdNotification.addEventListener('click', () => {
+    overwriteMatchingAnchorUrls(rtdNotification);
+    overwriteMatchingAnchorUrls(rtdNotification.shadowRoot);
+  });
+
+  return true;
+}
+
+function patchSearch() {
+  const rtdSearch = document.querySelector('readthedocs-search');
+  if (!rtdSearch) return false;
+
+  prependPathToAnchorUrls(rtdSearch, new_path);
+  prependPathToAnchorUrls(rtdSearch.shadowRoot, new_path);
+
+  rtdSearch.addEventListener('click', () => {
+    prependPathToAnchorUrls(rtdSearch, new_path);
+    prependPathToAnchorUrls(rtdSearch.shadowRoot, new_path);
+  });
+
+  return true;
+}
+
+function init() {
+  overwriteMatchingAnchorUrls(document.querySelector('header'));
+
+  if (patchFlyout()) return;
+  if (patchNotification()) return;
+  if (patchSearch()) return;
+
+  const observer = new MutationObserver(() => {
+    if (patchFlyout() || patchNotification() || patchSearch()) {
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+if (document.body) {
+  init();
+} else {
+  document.addEventListener('DOMContentLoaded', init);
+}
