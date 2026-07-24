@@ -60,8 +60,37 @@ function patchNotification() {
   if (rtdNotification.dataset.urlOverwritePatched) return true;
   rtdNotification.dataset.urlOverwritePatched = 'true';
 
-  overwriteMatchingAnchorUrls(rtdNotification);
-  overwriteMatchingAnchorUrls(rtdNotification.shadowRoot);
+  const patchAll = () => {
+    overwriteMatchingAnchorUrls(rtdNotification);
+    if (rtdNotification.shadowRoot) {
+      overwriteMatchingAnchorUrls(rtdNotification.shadowRoot);
+    }
+  };
+
+  // Patch any content that already exists.
+  patchAll();
+
+  // Notification content is rendered dynamically into the element's shadow DOM
+  // by Lit when the config is loaded (asynchronously), so the initial patch
+  // above will usually find nothing. Wait for the shadow root to become
+  // available (the custom element may not have been upgraded yet) and then
+  // observe it so that links are patched as soon as they are rendered.
+  const observeShadowRoot = () => {
+    if (!rtdNotification.shadowRoot) {
+      requestAnimationFrame(observeShadowRoot);
+      return;
+    }
+
+    patchAll();
+
+    const observer = new MutationObserver(patchAll);
+    observer.observe(rtdNotification.shadowRoot, {
+      childList: true,
+      subtree: true,
+    });
+  };
+
+  observeShadowRoot();
 
   return true;
 }
