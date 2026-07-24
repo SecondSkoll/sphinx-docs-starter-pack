@@ -81,7 +81,7 @@ function init() {
   if (patchSearch()) return;
 
   const observer = new MutationObserver(() => {
-    if (patchFlyout() || patchNotification() || patchSearch()) {
+    if (patchFlyout() && patchNotification() && patchSearch()) {
       observer.disconnect();
     }
   });
