@@ -76,9 +76,7 @@ function patchSearch() {
 function init() {
   overwriteMatchingAnchorUrls(document.querySelector('header'));
 
-  if (patchFlyout()) return;
-  if (patchNotification()) return;
-  if (patchSearch()) return;
+  if (patchFlyout() && patchNotification() && patchSearch()) return;
 
   const observer = new MutationObserver(() => {
     if (patchFlyout() && patchNotification() && patchSearch()) {
